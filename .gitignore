@@ -1,0 +1,21 @@
+# Created by https://www.gitignore.io/api/code,godot
+# Edit at https://www.gitignore.io/?templates=code,godot
+
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+### Godot ###
+
+# Godot-specific ignores
+.import/
+export.cfg
+export_presets.cfg
+
+# Mono-specific ignores
+.mono/
+
+# End of https://www.gitignore.io/api/code,godot

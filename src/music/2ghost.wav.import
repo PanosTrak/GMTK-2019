@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/2ghost.wav-02a06f5c52dbb4f1eae68deb293d5b8a.sample"
+
+[deps]
+
+source_file="res://src/music/2ghost.wav"
+dest_files=[ "res://.import/2ghost.wav-02a06f5c52dbb4f1eae68deb293d5b8a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

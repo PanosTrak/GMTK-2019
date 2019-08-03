@@ -69,5 +69,9 @@ func movement_input():
 
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 
+
+func launch(speed):
+	velocity.y += -speed
+
 func _physics_process(delta):
 	movement_input()

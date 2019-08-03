@@ -18,7 +18,8 @@ func _process(delta):
 		if at_pos < length:
 			at_pos += 1
 		else:
-			run = false
+			at_pos = 0
+			#run = false
 		checkAnimation()
 	#print("O")
 

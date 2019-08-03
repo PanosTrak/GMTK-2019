@@ -35,7 +35,6 @@ func _on_Area2D_body_entered(body):
 			# TODO do something with freezer
 			pass
 		states.SPIKES:
-			# TODO do something with spikes
-			pass
+			body.die()
 		states.JUMPER:
 			body.launch(jumper_power)

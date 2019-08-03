@@ -82,3 +82,6 @@ func launch(speed):
 func _physics_process(delta):
 	movement_input()
 	Ghost_recording.setPosition(self.global_position) #sends the position into the Ghost_Sysdtem class
+
+func _hitCheckpoint(area):
+	Ghost_recording.hitCheckpoint()

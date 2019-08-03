@@ -54,7 +54,8 @@ func checkAnimation():
 		nextAnimationChange = states[states_position]
 		states_position += 1
 
-
+func hitCheckPoint():
+	pass
 
 
 

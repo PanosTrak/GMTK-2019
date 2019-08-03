@@ -1,15 +1,21 @@
 extends KinematicBody2D
 
 const MAX_SPEED = 200
-const ACCELERATION = 20
-const GRAVITY = 15
-const JUMP = -500
+const ACCELERATION = 25
+const GRAVITY = 500
+const MASS = 15
+const JUMP = -450
 var velocity = Vector2()
+var last_wall_jump_pos
 
 func movement_input():
 
-	# Add gravity
-	velocity.y += GRAVITY
+	if !is_on_wall():
+		velocity.y = clamp(MASS + velocity.y, -1000, GRAVITY) 
+	else:
+		velocity.y = clamp(MASS + velocity.y, -1000, GRAVITY/4)
+		print(velocity.y)
+
 
 	# Get Input from player
 	var move_pos = Vector2(0,0)
@@ -17,8 +23,19 @@ func movement_input():
 		move_pos.x += 1
 	if Input.is_action_pressed('move_left'):
 		move_pos.x += -1
-	if Input.is_action_pressed('jump') && is_on_floor():
-		move_pos.y += JUMP
+	if Input.is_action_just_pressed('jump') && is_on_floor():
+		move_pos.y = JUMP
+	if Input.is_action_just_pressed('jump') && is_on_wall():
+		if last_wall_jump_pos == null:
+			velocity.y = 0
+			move_pos.y = JUMP
+			last_wall_jump_pos = move_pos.x
+		else:
+			if last_wall_jump_pos != move_pos.x:
+				move_pos.y = JUMP
+				velocity.y = 0
+				last_wall_jump_pos = move_pos.x
+				
 	
 	if move_pos.x != 0:
 		$AnimatedSprite.play("run")
@@ -27,7 +44,6 @@ func movement_input():
 			$AnimatedSprite.flip_h = false
 		else:
 			velocity.x = clamp(velocity.x - ACCELERATION,-MAX_SPEED, MAX_SPEED)
-			print(velocity.x)
 			$AnimatedSprite.flip_h = true
 	else:
 		$AnimatedSprite.play("idle")
@@ -39,12 +55,16 @@ func movement_input():
 			$AnimatedSprite.play("jump")
 		else:
 			$AnimatedSprite.play("fall")
+	else:
+		# Reset last wall jump position when player hit the ground
+		last_wall_jump_pos = 0
 		
-	velocity.y += move_pos.y
+	if is_on_floor():
+		velocity.y = clamp(move_pos.y + velocity.y, -1000, 1000)
+	elif is_on_wall():
+		velocity.y = clamp(move_pos.y + velocity.y, -450, 125)
+
 	velocity = move_and_slide(velocity, Vector2(0,-1))
-	if velocity != Vector2(0,0):
-		print(velocity)
-	
 
 func _physics_process(delta):
 	movement_input()

@@ -4,63 +4,58 @@ export (PackedScene) var Save
 
 const MAX_SPEED = 200
 const ACCELERATION = 25
-const GRAVITY = 25
-const JUMP = 400
-
+const GRAVITY = 500
+const ON_WALL_GRAVITY = 125
+const JUMP_LIMIT = -1000
+const ON_WALL_JUMP_LIMIT = -450
+const MASS = 15
+const JUMP = -450
+const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
+var last_wall_jump_pos
 
-var save_instance
-var startingposition 
-var active = true
 
-func _ready():
-	save_instance = Save.instance()
-	startingposition = self.position
-	save_instance.setAnimatedSprite($AnimatedSprite)
+func movement_input():
 
-func get_input():
-	var action = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+	if !is_on_wall():
+		velocity.y = clamp(MASS + velocity.y, JUMP_LIMIT, GRAVITY) 
+	else:
+		velocity.y = clamp(MASS + velocity.y, ON_WALL_JUMP_LIMIT, ON_WALL_GRAVITY)
+
+
+	# Get Input from player
+	var move_pos = Vector2(0,0)
+	if Input.is_action_pressed('move_right'):
+		move_pos.x += 1
+	if Input.is_action_pressed('move_left'):
+		move_pos.x += -1
+	if Input.is_action_just_pressed('jump') && is_on_floor():
+		move_pos.y = JUMP
+	if Input.is_action_just_pressed('jump') && is_on_wall():
+		if last_wall_jump_pos == null:
+			velocity.y = 0
+			move_pos.y = JUMP
+			last_wall_jump_pos = move_pos.x
+		else:
+			if last_wall_jump_pos != move_pos.x:
+				move_pos.y = JUMP
+				velocity.y = 0
+				last_wall_jump_pos = move_pos.x
 	
-	if Input.is_action_just_pressed("ui_up") && is_on_floor():
-		velocity.y = -JUMP
-	
-	if action != 0 && is_on_floor():
+	if move_pos.x != 0:
 		$AnimatedSprite.play("run")
-		save_instance.changeState("run")
-		velocity.x += ACCELERATION if action > 0 else -ACCELERATION
-		velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
-		
-		$AnimatedSprite.flip_h = action < 0
-	elif !is_on_floor():
 		if velocity.y < 0:
 			$AnimatedSprite.play("jump")
 			save_instance.changeState("jump")
 		else:
 			$AnimatedSprite.play("fall")
-			save_instance.changeState("fall")
-			
-		velocity.x = lerp(velocity.x, 0, 0.01)
-	else:
-		$AnimatedSprite.play("idle")
-		save_instance.changeState("idle")
-		velocity.x = lerp(velocity.x, 0, 0.3)
 		
-func set_gravity():
-	velocity.y += 10
+	if is_on_floor():
+		velocity.y = clamp(move_pos.y + velocity.y, JUMP_LIMIT, GRAVITY)
+	elif is_on_wall():
+		velocity.y = clamp(move_pos.y + velocity.y, ON_WALL_JUMP_LIMIT, ON_WALL_GRAVITY)
+
+	velocity = move_and_slide(velocity, Vector2(0,-1))
 
 func _physics_process(delta):
-	set_gravity()
-	get_input()
-	
-	velocity = move_and_slide(velocity, Vector2(0, -1))
-
-func _process(delta):
-	if active:
-		save_instance.setPosition(self.global_position)
-	else:
-		save_instance.setLengthIntern()
-		self.global_position = save_instance.getPosition()
-
-func _on_Area2D_area_entered(area):
-	active = false
-	save_instance.startGhost()
+	movement_input()

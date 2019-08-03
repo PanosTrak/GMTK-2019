@@ -1,27 +1,17 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Save_Movement.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Player/Idle0.png" type="Texture" id=3]
-[ext_resource path="res://assets/Player/Jump0.png" type="Texture" id=4]
-[ext_resource path="res://assets/Player/Jump1.png" type="Texture" id=5]
-[ext_resource path="res://assets/Player/Jump3.png" type="Texture" id=6]
-[ext_resource path="res://assets/Player/Jump4.png" type="Texture" id=7]
-[ext_resource path="res://assets/Player/Run0.png" type="Texture" id=8]
-[ext_resource path="res://assets/Player/Run1.png" type="Texture" id=9]
-[ext_resource path="res://assets/Player/Run2.png" type="Texture" id=10]
-[ext_resource path="res://assets/Player/Run3.png" type="Texture" id=11]
-[ext_resource path="res://assets/Player/Run4.png" type="Texture" id=12]
-[ext_resource path="res://assets/Player/Run7.png" type="Texture" id=13]
-[ext_resource path="res://assets/Sky.png" type="Texture" id=14]
-
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 14.0
-height = 30.0
-
-[sub_resource type="CapsuleShape2D" id=3]
-radius = 15.7536
-height = 25.911
+[ext_resource path="res://assets/Player/Idle0.png" type="Texture" id=2]
+[ext_resource path="res://assets/Player/Jump0.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/Jump1.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/Jump3.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/Jump4.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/Run0.png" type="Texture" id=7]
+[ext_resource path="res://assets/Player/Run1.png" type="Texture" id=8]
+[ext_resource path="res://assets/Player/Run2.png" type="Texture" id=9]
+[ext_resource path="res://assets/Player/Run3.png" type="Texture" id=10]
+[ext_resource path="res://assets/Player/Run4.png" type="Texture" id=11]
+[ext_resource path="res://assets/Player/Run7.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,7 +39,6 @@ animations = [ {
 [node name="Player" type="KinematicBody2D" groups=[
 "player",
 ]]
-position = Vector2( 96, 160 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -57,32 +46,8 @@ __meta__ = {
 Save = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2( 0, 3.5 )
+position = Vector2( 0, 4 )
 shape = SubResource( 2 )
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-animation = "idle"
-
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
-offset = Vector2( -50, -100 )
-transform = Transform2D( 1, 0, 0, 1, -50, -100 )
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2( 96, 160 )
-motion_scale = Vector2( 0.1, 0.1 )
-motion_mirroring = Vector2( 640, 640 )
-
-[node name="Sky" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( -64, -64 )
-texture = ExtResource( 14 )
-centered = false
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true

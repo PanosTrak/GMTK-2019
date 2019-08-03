@@ -8,6 +8,7 @@ const JUMP_LIMIT = -1000
 const ON_WALL_JUMP_LIMIT = -450
 const MASS = 15
 const JUMP = -450
+const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos
 
@@ -50,7 +51,7 @@ func movement_input():
 	else:
 		$AnimatedSprite.play("idle")
 		if velocity.x != 0:
-			velocity.x = int(lerp(velocity.x, 0, 0.25))
+			velocity.x = int(lerp(velocity.x, 0, STOP_ACCELERATION))
 
 	if !is_on_floor():
 		if velocity.y < 0:

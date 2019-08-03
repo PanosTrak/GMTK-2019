@@ -1,37 +1,39 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Main_Menu.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Test_Main.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/Level_Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 extra_spacing_char = 5
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 75
 extra_spacing_char = 20
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
 extra_spacing_char = 5
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 70
 extra_spacing_char = 10
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
 extra_spacing_char = 5
-font_data = ExtResource( 3 )
+font_data = ExtResource( 4 )
 
 [node name="Main_Menu" type="CanvasLayer"]
 script = ExtResource( 1 )
 Level_1 = ExtResource( 2 )
+Level_scene = ExtResource( 3 )
 
 [node name="Background Image" type="Sprite" parent="."]
 

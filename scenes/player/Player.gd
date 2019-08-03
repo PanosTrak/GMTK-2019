@@ -20,6 +20,7 @@ var is_frozen = false
 
 func _ready():
 	Ghost_recording = Ghost_Scene.instance()
+	add_child(Ghost_recording)
 
 func movement_input():
 

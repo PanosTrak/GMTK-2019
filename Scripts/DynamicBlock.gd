@@ -11,6 +11,7 @@ export(Texture) var jumper_img
 export(int) var jumper_power = 500
 export(float) var freeze_time = 3.0
 
+export(PackedScene) var freeze_particles
 
 onready var state_texture = {
 	0: freezer_img,
@@ -47,6 +48,10 @@ func _on_Area2D_body_entered(body):
 func _start_freeze():
 	$FreezeTimer.start(freeze_time)
 	player.freeze()
+	var freeze_particles_inst = freeze_particles.instance()
+	add_child(freeze_particles_inst)
+	freeze_particles_inst.set_global_position($ParticleSpawnPosition.get_global_position())
+	freeze_particles_inst.set_emitting(true)
 
 func _on_FreezeTimer_timeout():
 	$FreezeTimer.stop()

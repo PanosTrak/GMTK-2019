@@ -14,6 +14,8 @@ const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos
 var Ghost_recording
+var is_dead = false
+var is_frozen = false
 
 func _ready():
 	Ghost_recording = Ghost_Scene.instance()
@@ -83,8 +85,21 @@ func movement_input():
 func launch(speed):
 	velocity.y += -speed
 
+func die():
+	is_dead = true
+	$AnimatedSprite.queue_free()
+
+func freeze():
+	is_frozen = true
+	$AnimatedSprite.set_self_modulate(Color(0.1, 1, 1, 1))
+
+func unfreeze():
+	is_frozen = false
+	$AnimatedSprite.set_self_modulate(Color(1, 1, 1, 1))
+
 func _physics_process(delta):
-	movement_input()
+	if !is_dead && !is_frozen:
+		movement_input()
 	Ghost_recording.setPosition(self.global_position) #sends the position into the Ghost_Sysdtem class
 
 func _hitCheckpoint(area):

@@ -9,12 +9,16 @@ export(Texture) var spikes_img
 export(Texture) var jumper_img
 
 export(int) var jumper_power = 500
+export(float) var freeze_time = 3.0
+
 
 onready var state_texture = {
 	0: freezer_img,
 	1: spikes_img,
 	2: jumper_img
 }
+
+var player
 
 onready var state = starting_state 
 
@@ -30,12 +34,20 @@ func _process(delta):
 	$Sprite.set_texture(state_texture[state])
 
 func _on_Area2D_body_entered(body):
-	match state:
-		states.FREEZER:
-			# TODO do something with freezer
-			pass
-		states.SPIKES:
-			# TODO do something with spikes
-			pass
-		states.JUMPER:
-			body.launch(jumper_power)
+	if body.is_in_group('player'):
+		player = body
+		match state:
+			states.FREEZER:
+				_start_freeze()
+			states.SPIKES:
+				player.die()
+			states.JUMPER:
+				player.launch(jumper_power)
+
+func _start_freeze():
+	$FreezeTimer.start(freeze_time)
+	player.freeze()
+
+func _on_FreezeTimer_timeout():
+	$FreezeTimer.stop()
+	player.unfreeze()

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles/DirtAutoTile.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 41.1827, 56.0686 )
@@ -20,3 +21,18 @@ tile_data = PoolIntArray( -327680, 0, 5, -327655, 0, 5, -262144, 0, 65541, -2621
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 682.622, 297.113 )
 shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( 682.152, 279.817 )
+scale = Vector2( 1.21336, 1.16002 )
+texture = ExtResource( 3 )
+
+[node name="EndPoint" type="Label" parent="Area2D"]
+margin_left = 623.446
+margin_top = 206.171
+margin_right = 755.446
+margin_bottom = 254.171
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Temporary Endpoint 
+for Ghost System
+"

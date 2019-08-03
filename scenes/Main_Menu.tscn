@@ -1,31 +1,37 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Main_Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://assets/Main_Menu_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/Test_Main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 extra_spacing_char = 5
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 75
+extra_spacing_char = 20
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 40
 extra_spacing_char = 5
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 70
 extra_spacing_char = 10
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 25
 extra_spacing_char = 5
-font_data = ExtResource( 2 )
+font_data = ExtResource( 3 )
 
 [node name="Main_Menu" type="CanvasLayer"]
 script = ExtResource( 1 )
+Level_1 = ExtResource( 2 )
 
 [node name="Background Image" type="Sprite" parent="."]
 
@@ -45,11 +51,11 @@ align = 1
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -177.0
-margin_top = 62.0
-margin_right = 178.0
-margin_bottom = -408.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = -183.002
+margin_top = 62.8574
+margin_right = 212.998
+margin_bottom = -402.143
+custom_fonts/font = SubResource( 5 )
 text = "Enemy"
 align = 1
 

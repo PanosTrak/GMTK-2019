@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export (Script) var Ghost_recording
+
 const MAX_SPEED = 200
 const ACCELERATION = 25
 const GRAVITY = 500
@@ -42,6 +44,7 @@ func movement_input():
 	
 	if move_pos.x != 0:
 		$AnimatedSprite.play("run")
+		Ghost_recording.changeState("run") # saves when the animation changes
 		if move_pos.x == 1:
 			velocity.x = clamp(velocity.x + ACCELERATION, -MAX_SPEED, MAX_SPEED)
 			$AnimatedSprite.flip_h = false
@@ -50,14 +53,17 @@ func movement_input():
 			$AnimatedSprite.flip_h = true
 	else:
 		$AnimatedSprite.play("idle")
+		Ghost_recording.changeState("idle") # saves when the animation changes
 		if velocity.x != 0:
 			velocity.x = int(lerp(velocity.x, 0, STOP_ACCELERATION))
 
 	if !is_on_floor():
 		if velocity.y < 0:
 			$AnimatedSprite.play("jump")
+			Ghost_recording.changeState("jump") # saves when the animation changes
 		else:
 			$AnimatedSprite.play("fall")
+			Ghost_recording.changeState("fall") # saves when the animation changes
 	else:
 		# Reset last wall jump position when player hit the ground
 		last_wall_jump_pos = 0
@@ -75,3 +81,4 @@ func launch(speed):
 
 func _physics_process(delta):
 	movement_input()
+	Ghost_recording.setPosition(self.global_position) #sends the position into the Ghost_Sysdtem class

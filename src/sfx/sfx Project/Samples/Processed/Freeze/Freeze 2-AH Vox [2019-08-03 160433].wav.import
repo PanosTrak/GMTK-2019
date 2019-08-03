@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Freeze 2-AH Vox [2019-08-03 160433].wav-39db1ea41e715a25e6f881b71d13cf56.sample"
+
+[deps]
+
+source_file="res://src/sfx/sfx Project/Samples/Processed/Freeze/Freeze 2-AH Vox [2019-08-03 160433].wav"
+dest_files=[ "res://.import/Freeze 2-AH Vox [2019-08-03 160433].wav-39db1ea41e715a25e6f881b71d13cf56.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

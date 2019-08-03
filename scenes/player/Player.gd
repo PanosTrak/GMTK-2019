@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-export (PackedScene) var Save
-
 const MAX_SPEED = 200
 const ACCELERATION = 25
 const GRAVITY = 500
@@ -13,7 +11,6 @@ const JUMP = -450
 const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos
-
 
 func movement_input():
 
@@ -41,14 +38,29 @@ func movement_input():
 				move_pos.y = JUMP
 				velocity.y = 0
 				last_wall_jump_pos = move_pos.x
+				
 	
 	if move_pos.x != 0:
 		$AnimatedSprite.play("run")
+		if move_pos.x == 1:
+			velocity.x = clamp(velocity.x + ACCELERATION, -MAX_SPEED, MAX_SPEED)
+			$AnimatedSprite.flip_h = false
+		else:
+			velocity.x = clamp(velocity.x - ACCELERATION,-MAX_SPEED, MAX_SPEED)
+			$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.play("idle")
+		if velocity.x != 0:
+			velocity.x = int(lerp(velocity.x, 0, STOP_ACCELERATION))
+
+	if !is_on_floor():
 		if velocity.y < 0:
 			$AnimatedSprite.play("jump")
-			save_instance.changeState("jump")
 		else:
 			$AnimatedSprite.play("fall")
+	else:
+		# Reset last wall jump position when player hit the ground
+		last_wall_jump_pos = 0
 		
 	if is_on_floor():
 		velocity.y = clamp(move_pos.y + velocity.y, JUMP_LIMIT, GRAVITY)

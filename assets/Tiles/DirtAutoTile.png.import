@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DirtAutoTile.png-9eff73fbc4eb525dfe0acb79cd000047.stex"
+path="res://.import/DirtAutoTile.png-02574556c6d6136c42af92ad4fcbc306.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Tiles/DirtAutoTile.png"
-dest_files=[ "res://.import/DirtAutoTile.png-9eff73fbc4eb525dfe0acb79cd000047.stex" ]
+source_file="res://assets/Tiles/DirtAutoTile.png"
+dest_files=[ "res://.import/DirtAutoTile.png-02574556c6d6136c42af92ad4fcbc306.stex" ]
 
 [params]
 

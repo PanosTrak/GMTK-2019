@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/5add.wav-8164203bb65dbc620f682e2f0ccd6a68.sample"
+path="res://.import/changestate.wav-873d05a4b73df5fa1b65be490be0182a.sample"
 
 [deps]
 
-source_file="res://src/music/5add.wav"
-dest_files=[ "res://.import/5add.wav-8164203bb65dbc620f682e2f0ccd6a68.sample" ]
+source_file="res://src/sfx/changestate.wav"
+dest_files=[ "res://.import/changestate.wav-873d05a4b73df5fa1b65be490be0182a.sample" ]
 
 [params]
 

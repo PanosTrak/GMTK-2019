@@ -48,7 +48,7 @@ func setAnimatedSprite(sprite):
 
 func setLengthIntern():
 	positions_lenght = positions.size()
-a
+
 func checkAnimation():
 	if time >= nextAnimationChange:
 		anim_Sprite.play(states[states_position])

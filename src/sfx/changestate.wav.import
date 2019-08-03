@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/changestate.wav-873d05a4b73df5fa1b65be490be0182a.sample"
+
+[deps]
+
+source_file="res://src/sfx/changestate.wav"
+dest_files=[ "res://.import/changestate.wav-873d05a4b73df5fa1b65be490be0182a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

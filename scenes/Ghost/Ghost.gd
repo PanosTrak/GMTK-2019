@@ -20,7 +20,7 @@ func _process(delta):
 		else:
 			run = false
 		checkAnimation()
-	print("O")
+	#print("O")
 
 func setStates(pStates):
 	states = pStates

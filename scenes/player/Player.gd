@@ -3,6 +3,9 @@ extends KinematicBody2D
 const MAX_SPEED = 200
 const ACCELERATION = 25
 const GRAVITY = 500
+const ON_WALL_GRAVITY = 125
+const JUMP_LIMIT = -1000
+const ON_WALL_JUMP_LIMIT = -450
 const MASS = 15
 const JUMP = -450
 var velocity = Vector2()
@@ -11,10 +14,9 @@ var last_wall_jump_pos
 func movement_input():
 
 	if !is_on_wall():
-		velocity.y = clamp(MASS + velocity.y, -1000, GRAVITY) 
+		velocity.y = clamp(MASS + velocity.y, JUMP_LIMIT, GRAVITY) 
 	else:
-		velocity.y = clamp(MASS + velocity.y, -1000, GRAVITY/4)
-		print(velocity.y)
+		velocity.y = clamp(MASS + velocity.y, ON_WALL_JUMP_LIMIT, ON_WALL_GRAVITY)
 
 
 	# Get Input from player
@@ -60,9 +62,9 @@ func movement_input():
 		last_wall_jump_pos = 0
 		
 	if is_on_floor():
-		velocity.y = clamp(move_pos.y + velocity.y, -1000, 1000)
+		velocity.y = clamp(move_pos.y + velocity.y, JUMP_LIMIT, GRAVITY)
 	elif is_on_wall():
-		velocity.y = clamp(move_pos.y + velocity.y, -450, 125)
+		velocity.y = clamp(move_pos.y + velocity.y, ON_WALL_JUMP_LIMIT, ON_WALL_GRAVITY)
 
 	velocity = move_and_slide(velocity, Vector2(0,-1))
 

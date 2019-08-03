@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arundel Nave.wav-0b1a0631c924db9f41da1e4851fb23f7.sample"
+
+[deps]
+
+source_file="res://src/music/ableton Project/IRs/01 Real Places/Arundel Nave.wav"
+dest_files=[ "res://.import/Arundel Nave.wav-0b1a0631c924db9f41da1e4851fb23f7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

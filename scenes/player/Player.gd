@@ -1,11 +1,21 @@
 extends KinematicBody2D
 
+export (PackedScene) var Save
+
 const MAX_SPEED = 200
 const ACCELERATION = 25
 const GRAVITY = 25
 const JUMP = 400
 
 var velocity = Vector2()
+
+var save_instance
+var startingposition 
+var active = true
+
+func _ready():
+	save_instance = Save.instance()
+	startingposition = self.position
 
 func get_input():
 	var action = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -38,3 +48,13 @@ func _physics_process(delta):
 	get_input()
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
+
+func _process(delta):
+	if active:
+		save_instance.setPosition(self.global_position)
+	else:
+		save_instance.setLengthIntern()
+		self.global_position = save_instance.getPosition()
+
+func _on_Area2D_area_entered(area):
+	active = false

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (Script) var Ghost_recording
+export (PackedScene) var Ghost_Scene
 
 const MAX_SPEED = 200
 const ACCELERATION = 25
@@ -13,6 +13,10 @@ const JUMP = -450
 const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos
+var Ghost_recording
+
+func _ready():
+	Ghost_recording = Ghost_Scene.instance()
 
 func movement_input():
 
@@ -84,4 +88,5 @@ func _physics_process(delta):
 	Ghost_recording.setPosition(self.global_position) #sends the position into the Ghost_Sysdtem class
 
 func _hitCheckpoint(area):
-	Ghost_recording.hitCheckpoint()
+	print("Hit Something")
+	Ghost_recording.hitCheckPoint()

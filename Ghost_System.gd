@@ -55,7 +55,7 @@ func checkAnimation():
 		states_position += 1
 
 func hitCheckPoint():
-	pass
+	print("Hit Ckeckpoint")
 
 
 

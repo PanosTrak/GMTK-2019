@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scenes/player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Ghost_System.gd" type="Script" id=2]
+[ext_resource path="res://Ghost_System.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Player/Idle0.png" type="Texture" id=3]
 [ext_resource path="res://assets/Player/Jump0.png" type="Texture" id=4]
 [ext_resource path="res://assets/Player/Jump1.png" type="Texture" id=5]
@@ -52,7 +52,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-Ghost_recording = ExtResource( 2 )
+Ghost_Scene = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (PackedScene) var Ghost_Scene
+export (PackedScene) var freeze_particles
 
 const MAX_SPEED = 200
 const ACCELERATION = 25
@@ -96,6 +97,10 @@ func freeze():
 func unfreeze():
 	is_frozen = false
 	$AnimatedSprite.set_self_modulate(Color(1, 1, 1, 1))
+	var freeze_particles_inst = freeze_particles.instance()
+	add_child(freeze_particles_inst)
+	freeze_particles_inst.set_global_position(get_global_position())
+	freeze_particles_inst.set_emitting(true)
 
 func _physics_process(delta):
 	if !is_dead && !is_frozen:

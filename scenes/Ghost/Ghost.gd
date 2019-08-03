@@ -43,4 +43,4 @@ func checkAnimation():
 
 func _hit_player(area):
 	var tmp = area.get_parent()
-	tmp.queue_free()
+	tmp.die()

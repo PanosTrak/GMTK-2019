@@ -1,5 +1,7 @@
 extends Node2D
 
+export (PackedScene) var Ghost
+
 signal stop
 
 var anim_Sprite
@@ -56,6 +58,13 @@ func checkAnimation():
 
 func hitCheckPoint():
 	print("Hit Ckeckpoint")
+	var g1 = Ghost.instance()
+	g1.global_position = positions[0]
+	g1.setStates(states)
+	g1.setPositions(positions)
+	add_child_below_node(self.get_parent(),g1,true)
+	#add_child(g1)
+	print("End of hitCheckPoint")
 
 
 

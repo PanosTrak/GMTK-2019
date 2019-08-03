@@ -16,6 +16,7 @@ var active = true
 func _ready():
 	save_instance = Save.instance()
 	startingposition = self.position
+	save_instance.setAnimatedSprite($AnimatedSprite)
 
 func get_input():
 	var action = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
@@ -25,6 +26,7 @@ func get_input():
 	
 	if action != 0 && is_on_floor():
 		$AnimatedSprite.play("run")
+		save_instance.changeState("run")
 		velocity.x += ACCELERATION if action > 0 else -ACCELERATION
 		velocity.x = clamp(velocity.x, -MAX_SPEED, MAX_SPEED)
 		
@@ -32,12 +34,15 @@ func get_input():
 	elif !is_on_floor():
 		if velocity.y < 0:
 			$AnimatedSprite.play("jump")
+			save_instance.changeState("jump")
 		else:
 			$AnimatedSprite.play("fall")
+			save_instance.changeState("fall")
 			
 		velocity.x = lerp(velocity.x, 0, 0.01)
 	else:
 		$AnimatedSprite.play("idle")
+		save_instance.changeState("idle")
 		velocity.x = lerp(velocity.x, 0, 0.3)
 		
 func set_gravity():
@@ -58,3 +63,4 @@ func _process(delta):
 
 func _on_Area2D_area_entered(area):
 	active = false
+	save_instance.startGhost()

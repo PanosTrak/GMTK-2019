@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 export (PackedScene) var Ghost_Scene
+export (PackedScene) var freeze_particles
 
 const MAX_SPEED = 200
 const ACCELERATION = 25
@@ -14,9 +15,12 @@ const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos
 var Ghost_recording
+var is_dead = false
+var is_frozen = false
 
 func _ready():
 	Ghost_recording = Ghost_Scene.instance()
+	add_child(Ghost_recording)
 
 func movement_input():
 
@@ -83,8 +87,25 @@ func movement_input():
 func launch(speed):
 	velocity.y += -speed
 
+func die():
+	is_dead = true
+	$AnimatedSprite.queue_free()
+
+func freeze():
+	is_frozen = true
+	$AnimatedSprite.set_self_modulate(Color(0.1, 1, 1, 1))
+
+func unfreeze():
+	is_frozen = false
+	$AnimatedSprite.set_self_modulate(Color(1, 1, 1, 1))
+	var freeze_particles_inst = freeze_particles.instance()
+	add_child(freeze_particles_inst)
+	freeze_particles_inst.set_global_position(get_global_position())
+	freeze_particles_inst.set_emitting(true)
+
 func _physics_process(delta):
-	movement_input()
+	if !is_dead && !is_frozen:
+		movement_input()
 	Ghost_recording.setPosition(self.global_position) #sends the position into the Ghost_Sysdtem class
 
 func _hitCheckpoint(area):

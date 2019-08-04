@@ -1,39 +1,37 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/Menu_Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Levels/Level_1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Level_Menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 70
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 65
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 4 )
+font_data = ExtResource( 3 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 474.705, 23.327 )
 script = ExtResource( 1 )
 Level_1 = ExtResource( 2 )
-Level_Menu = ExtResource( 3 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5

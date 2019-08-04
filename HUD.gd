@@ -39,8 +39,7 @@ func win():
 		return false
 
 func _on_Button_pressed():
-	var tmp = get_parent()
-	get_tree().change_scene_to(tmp)
+	get_tree().reload_current_scene()
 
 
 func _on_Back_pressed():

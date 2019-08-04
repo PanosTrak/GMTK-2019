@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Levels/Level_6.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/FinishLevel.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/Levels/Level_7.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -80,3 +81,5 @@ position = Vector2( 128.218, 302.5 )
 [node name="FinishLevel" parent="." instance=ExtResource( 8 )]
 position = Vector2( -256, 320 )
 Next_Level = ExtResource( 9 )
+
+[node name="Background" parent="." instance=ExtResource( 10 )]

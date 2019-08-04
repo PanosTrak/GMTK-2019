@@ -10,7 +10,7 @@ const ON_WALL_GRAVITY = 125
 const JUMP_LIMIT = -1000
 const ON_WALL_JUMP_LIMIT = -450
 const MASS = 15
-const JUMP = -450
+const JUMP = -500
 const STOP_ACCELERATION = 0.3
 var velocity = Vector2()
 var last_wall_jump_pos

@@ -27,4 +27,4 @@ You got only one enemy and it's _yourself_ !
  - Artist:
    - https://arondenouden.itch.io - https://github.com/ArondenOuden
  - Sound:
-   - https://github.com/MIntrovrt
+   - https://MIntrovrtio.itch.io - https://github.com/MIntrovrt

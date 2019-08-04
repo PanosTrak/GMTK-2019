@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dynamic freezer.png-0f47e75130ed08585b45b87955567f25.stex"
+path="res://.import/dynamic freezer.png-5a3c423066dc863d831e54d989c02aee.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Platform sprites/dynamic freezer.png"
-dest_files=[ "res://.import/dynamic freezer.png-0f47e75130ed08585b45b87955567f25.stex" ]
+source_file="res://Assets/Sprites/Platform sprites/dynamic freezer.png"
+dest_files=[ "res://.import/dynamic freezer.png-5a3c423066dc863d831e54d989c02aee.stex" ]
 
 [params]
 

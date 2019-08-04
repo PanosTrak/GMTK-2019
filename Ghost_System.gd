@@ -56,15 +56,16 @@ func checkAnimation():
 		nextAnimationChange = states[states_position]
 		states_position += 1
 
-func hitCheckPoint():
-	print("Hit Ckeckpoint")
-	var g1 = Ghost.instance()
-	g1.global_position = positions[0]
-	g1.setStates(states)
-	g1.setPositions(positions)
-	add_child_below_node(self.get_parent(),g1,true)
-	#add_child(g1)
-	print("End of hitCheckPoint")
+func hitCheckPoint(area):
+	var cp = area.get_parent()
+	if cp.is_in_group('checkpoint'):
+		print("Hit Ckeckpoint")
+		var g1 = Ghost.instance()
+		g1.global_position = positions[0]
+		g1.setStates(states)
+		g1.setPositions(positions)
+		add_child_below_node(self.get_parent(),g1,true)
+		#print("End of hitCheckPoint")
 
 
 

@@ -88,8 +88,8 @@ func launch(speed):
 	velocity.y += -speed
 
 func die():
-	is_dead = true
-	$AnimatedSprite.queue_free()
+	$AnimatedSprite.hide()
+	$Area2D.queue_free()
 
 func freeze():
 	is_frozen = true
@@ -110,4 +110,4 @@ func _physics_process(delta):
 
 func _hitCheckpoint(area):
 	print("Hit Something")
-	Ghost_recording.hitCheckPoint()
+	Ghost_recording.hitCheckPoint(area)

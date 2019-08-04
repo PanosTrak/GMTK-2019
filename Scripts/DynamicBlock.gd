@@ -22,6 +22,7 @@ onready var state_texture = {
 }
 
 var player
+var ghost
 
 onready var state = starting_state 
 
@@ -37,15 +38,18 @@ func _process(delta):
 	$Sprite.set_texture(state_texture[state])
 
 func _on_Area2D_body_entered(body):
+	print("Entered")
 	if body.is_in_group('player'):
 		player = body
 		match state:
 			states.FREEZER:
-				_start_freeze()
+				_start_freeze(player)
 			states.SPIKES:
 				player.die()
 			states.JUMPER:
 				player.launch(jumper_power)
+
+
 
 func _on_ChangeStateArea2D_body_entered(body):
 	if body.is_in_group('player') && body.is_on_ceiling():
@@ -57,9 +61,10 @@ func _on_ChangeStateArea2D_body_entered(body):
 		else:
 			state = 0
 
-func _start_freeze():
-	$FreezeTimer.start(freeze_time)
-	player.freeze()
+func _start_freeze(object):
+	if object.is_in_group('player'):
+		$FreezeTimer.start(freeze_time)
+	object.freeze()
 	var freeze_particles_inst = freeze_particles.instance()
 	add_child(freeze_particles_inst)
 	freeze_particles_inst.set_global_position($ParticleSpawnPosition.get_global_position())
@@ -68,3 +73,15 @@ func _start_freeze():
 func _on_FreezeTimer_timeout():
 	$FreezeTimer.stop()
 	player.unfreeze()
+
+
+func _on_Area2D_area_entered(area):
+	var g = area.get_parent()
+	if g.is_in_group('Ghost'):
+		print("its a ghost")
+		ghost = g
+		match state:
+			states.FREEZER:
+				_start_freeze(ghost)
+			states.SPIKES:
+				ghost.die()

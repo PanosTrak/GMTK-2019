@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles/DirtAutoTile.tres" type="TileSet" id=1]
 [ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=4]
 
 [node name="Main" type="Node2D"]
 
@@ -22,3 +23,6 @@ position = Vector2( -168.822, 159.778 )
 
 [node name="Checkpoint3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1220.94, 69.3375 )
+
+[node name="StaticBody2D" parent="." instance=ExtResource( 4 )]
+position = Vector2( 507.478, 65.3738 )

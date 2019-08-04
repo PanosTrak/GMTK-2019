@@ -9,7 +9,7 @@ export(Texture) var freezer_img
 export(Texture) var spikes_img
 export(Texture) var jumper_img
 
-export(int) var jumper_power = 500
+export(int) var jumper_power = 700
 export(float) var freeze_time = 3.0
 
 export(PackedScene) var freeze_particles

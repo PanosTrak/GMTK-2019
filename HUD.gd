@@ -29,3 +29,9 @@ func increaseGhosts():
 
 func getGhostNumber():
 	return number_ghosts
+
+func win():
+	if checkpoints_done == checkpoints_all:
+		return true
+	else:
+		return false

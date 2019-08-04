@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GTMK-2019"
-run/main_scene="res://Main_Menu.tscn"
+run/main_scene="res://scenes/Menu_Main.tscn"
 config/icon="res://icon.png"
 
 [display]

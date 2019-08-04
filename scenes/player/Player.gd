@@ -113,8 +113,8 @@ func die():
 
 func freeze():
 	is_frozen = true
-	# audio_stream.set_stream(freezing)
-	# audio_stream.play()
+	freezing_player.set_stream(freezing)
+	freezing_player.play()
 	$AnimatedSprite.set_self_modulate(Color(0.1, 1, 1, 1))
 
 func unfreeze():

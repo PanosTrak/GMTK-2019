@@ -35,7 +35,8 @@ position = Vector2( 1216, 107.482 )
 [node name="DynamicBlocks" type="Node" parent="."]
 
 [node name="Dynamic1" parent="DynamicBlocks" instance=ExtResource( 6 )]
-position = Vector2( 1216, 350 )
+
+position = Vector2( 1088, 338.322 )
 
 [node name="FinishLevel" parent="." instance=ExtResource( 7 )]
 position = Vector2( -63, 320 )

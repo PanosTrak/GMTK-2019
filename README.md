@@ -2,9 +2,10 @@
 
 ### Team
 
+-Game Designer:
+  - https://github.com/EugeneTel
 - Programmers:
   - https://github.com/PanosTrak
-  - https://github.com/EugeneTel
   - https://github.com/FireDust01
 - Artist:
   - https://github.com/ArondenOuden

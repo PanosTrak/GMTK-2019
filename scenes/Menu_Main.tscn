@@ -1,39 +1,41 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scenes/Menu_Main.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Levels/Level_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Level_Menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://About.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 70
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 65
 extra_spacing_char = 15
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 30
-font_data = ExtResource( 4 )
+font_data = ExtResource( 5 )
 
 [node name="Node2D" type="Node2D"]
 position = Vector2( 474.705, 23.327 )
 script = ExtResource( 1 )
 Level_1 = ExtResource( 2 )
 Level_Menu = ExtResource( 3 )
+About = ExtResource( 4 )
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -118,6 +120,18 @@ margin_right = 115.0
 margin_bottom = 372.0
 custom_fonts/font = SubResource( 5 )
 text = "Level"
+
+[node name="Button4" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 233.0
+margin_top = 446.0
+margin_right = 460.0
+margin_bottom = 482.0
+custom_fonts/font = SubResource( 5 )
+text = "About"
 [connection signal="pressed" from="Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_level_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_Button4_pressed"]

@@ -88,6 +88,7 @@ func launch(speed):
 	velocity.y += -speed
 
 func die():
+	is_dead = true
 	$AnimatedSprite.hide()
 	$Area2D.queue_free()
 

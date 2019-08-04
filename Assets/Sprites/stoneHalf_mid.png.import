@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stoneHalf_mid.png-8c24baa4c1406b5ea82a3e16208f243b.stex"
+path="res://.import/stoneHalf_mid.png-ee73042111670f0466fd4de755486893.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/stoneHalf_mid.png"
-dest_files=[ "res://.import/stoneHalf_mid.png-8c24baa4c1406b5ea82a3e16208f243b.stex" ]
+source_file="res://Assets/Sprites/stoneHalf_mid.png"
+dest_files=[ "res://.import/stoneHalf_mid.png-ee73042111670f0466fd4de755486893.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scenes/Levels/Level_7.gd" type="Script" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
@@ -7,7 +7,8 @@
 [ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/FinishLevel.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/music_manager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/Levels/Level_8.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/music_manager.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
@@ -52,5 +53,6 @@ position = Vector2( 1216.27, 378.749 )
 
 [node name="FinishLevel" parent="." instance=ExtResource( 7 )]
 position = Vector2( -64, 192 )
+Next_Level = ExtResource( 8 )
 
-[node name="music_manager" parent="." instance=ExtResource( 8 )]
+[node name="music_manager" parent="." instance=ExtResource( 9 )]

@@ -14,6 +14,7 @@ var is_frozen = false
 
 func _ready():
 	print("new Ghost Instance")
+	$Ghost_animation.set_self_modulate(Color(0.1, 0.5, 1, 0.5))
 
 func _process(delta):
 	if is_frozen:

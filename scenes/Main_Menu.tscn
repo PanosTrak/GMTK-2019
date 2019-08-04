@@ -10,22 +10,22 @@ size = 30
 extra_spacing_char = 5
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=2]
 size = 75
 extra_spacing_char = 20
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 40
 extra_spacing_char = 5
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=4]
 size = 70
 extra_spacing_char = 10
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 25
 extra_spacing_char = 5
 font_data = ExtResource( 4 )
@@ -57,7 +57,7 @@ margin_left = -183.002
 margin_top = 62.8574
 margin_right = 212.998
 margin_bottom = -402.143
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 2 )
 text = "Enemy"
 align = 1
 
@@ -69,7 +69,7 @@ margin_left = -31.0
 margin_top = 132.0
 margin_right = 31.0
 margin_bottom = -368.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "is"
 align = 1
 
@@ -81,7 +81,7 @@ margin_left = -94.5565
 margin_top = 170.0
 margin_right = 102.444
 margin_bottom = -300.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "You"
 align = 1
 
@@ -90,7 +90,7 @@ margin_left = 348.208
 margin_top = 253.936
 margin_right = 608.208
 margin_bottom = 316.936
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Start"
 
 [node name="level" type="Button" parent="."]
@@ -98,7 +98,7 @@ margin_left = 349.261
 margin_top = 339.199
 margin_right = 609.261
 margin_bottom = 402.199
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Level"
 
 [node name="exit" type="Button" parent="."]
@@ -106,7 +106,7 @@ margin_left = 352.419
 margin_top = 424.462
 margin_right = 612.419
 margin_bottom = 487.462
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 text = "Exit"
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="level" to="." method="_on_level_pressed"]

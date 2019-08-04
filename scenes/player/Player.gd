@@ -110,4 +110,4 @@ func _physics_process(delta):
 
 func _hitCheckpoint(area):
 	print("Hit Something")
-	Ghost_recording.hitCheckPoint()
+	Ghost_recording.hitCheckPoint(area)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://scenes/Screenshot (18).png" type="Texture" id=2]
+[ext_resource path="res://Background.tscn" type="PackedScene" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -64,6 +65,14 @@ margin_right = 277.0
 margin_bottom = 437.0
 custom_fonts/font = SubResource( 1 )
 text = "Artist:"
+
+[node name="Label14" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 512.0
+margin_right = 296.0
+margin_bottom = 532.0
+custom_fonts/font = SubResource( 1 )
+text = "august 2019"
 
 [node name="Label2" type="Label" parent="."]
 margin_left = 299.0
@@ -133,3 +142,5 @@ text = "You"
 position = Vector2( 740.501, 351.5 )
 scale = Vector2( 0.302101, 0.320809 )
 texture = ExtResource( 2 )
+
+[node name="Background" parent="." instance=ExtResource( 3 )]

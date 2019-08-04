@@ -62,7 +62,8 @@ func _on_ChangeStateArea2D_body_entered(body):
 			state = 0
 
 func _start_freeze(object):
-	$FreezeTimer.start(freeze_time)
+	if object.is_in_group('player'):
+		$FreezeTimer.start(freeze_time)
 	object.freeze()
 	var freeze_particles_inst = freeze_particles.instance()
 	add_child(freeze_particles_inst)

@@ -47,8 +47,8 @@ func checkAnimation():
 	pass
 
 func _hit_player(area):
-	if area.is_in_group('player'):
-		var tmp = area.get_parent()
+	var tmp = area.get_parent()
+	if tmp.is_in_group('player'):
 		tmp.die()
 
 func freeze():
@@ -65,7 +65,7 @@ func unfreeze():
 	freeze_particles_inst.set_emitting(true)
 
 func die():
-	queue_free()
+	at_pos = 0
 
 
 

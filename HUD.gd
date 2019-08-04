@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+export (PackedScene) var Level_Menu
+
 var checkpoints_done = 0
 var checkpoints_all = 3
 var level_name = "Level name here"
@@ -35,3 +37,10 @@ func win():
 		return true
 	else:
 		return false
+
+func _on_Button_pressed():
+	get_tree().reload_current_scene()
+
+
+func _on_Back_pressed():
+	get_tree().change_scene_to(Level_Menu)

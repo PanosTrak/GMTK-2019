@@ -2,17 +2,10 @@
 
 [ext_resource path="res://scenes/FinishLevel.gd" type="Script" id=1]
 [ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [  ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 62.3846, 62.2127 )
+extents = Vector2( 41.339, 62.2127 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 60
@@ -21,15 +14,13 @@ font_data = ExtResource( 2 )
 [node name="FinishLevel" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
-
 [node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -3.68323, 0 )
 collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 64.3029, 64.3029 )
+position = Vector2( 40.6891, 60.7095 )
 shape = SubResource( 2 )
 
 [node name="Label" type="Label" parent="."]
@@ -43,5 +34,10 @@ text = "Level finished"
 [node name="Next_Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 37.815, 61.6982 )
+scale = Vector2( 1.24878, 1.87074 )
+texture = ExtResource( 3 )
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Next_Timer" to="." method="_on_Next_Timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://HUD.gd" type="Script" id=1]
 [ext_resource path="res://Hud_font.tres" type="DynamicFont" id=2]
@@ -6,6 +6,10 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
 font_data = ExtResource( 3 )
 
 [node name="HUD" type="CanvasLayer"]
@@ -49,10 +53,20 @@ margin_bottom = 55.3634
 custom_fonts/font = ExtResource( 2 )
 text = "Level 01"
 
-[node name="Button" type="Button" parent="."]
-margin_left = 776.82
-margin_top = 21.0
-margin_right = 936.82
-margin_bottom = 67.0
+[node name="Resart" type="Button" parent="."]
+margin_left = 783.0
+margin_top = 16.0
+margin_right = 943.0
+margin_bottom = 48.0
 custom_fonts/font = SubResource( 1 )
 text = "Restart"
+
+[node name="Back" type="Button" parent="."]
+margin_left = 741.912
+margin_top = 61.9999
+margin_right = 942.912
+margin_bottom = 95.9999
+custom_fonts/font = SubResource( 2 )
+text = "Back to Menu"
+[connection signal="pressed" from="Resart" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]

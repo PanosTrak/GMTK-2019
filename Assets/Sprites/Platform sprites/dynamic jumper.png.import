@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dynamic jumper.png-01664ab86edad351c51aa344caa43cbc.stex"
+path="res://.import/dynamic jumper.png-3f32c38b162802b443d421311c11b386.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Sprites/Platform sprites/dynamic jumper.png"
-dest_files=[ "res://.import/dynamic jumper.png-01664ab86edad351c51aa344caa43cbc.stex" ]
+source_file="res://Assets/Sprites/Platform sprites/dynamic jumper.png"
+dest_files=[ "res://.import/dynamic jumper.png-3f32c38b162802b443d421311c11b386.stex" ]
 
 [params]
 

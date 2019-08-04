@@ -1,10 +1,10 @@
-# GMTK 2019 Game Jam Project
+# The Enemy is YOU
 
 https://panostrak.itch.io/the-enemy-is-you
 
-This is a game made for the GMTK 2019 with theme "Only One"
+This is a game made for the **GMTK 2019** with theme _"Only One"_
 
-You got only one enemy and it's yourself!
+You got only one enemy and it's _yourself_ !
 
 ### Movement: ###
 

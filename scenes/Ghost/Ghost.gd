@@ -47,8 +47,9 @@ func checkAnimation():
 	pass
 
 func _hit_player(area):
-	if area.is_in_group('player'):
-		var tmp = area.get_parent()
+	var tmp = area.get_parent()
+	if tmp.is_in_group('player'):
+		print("Hit Player")
 		tmp.die()
 
 func freeze():

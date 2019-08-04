@@ -1,46 +1,53 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://tiles/DirtAutoTile.tres" type="TileSet" id=1]
-[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/FinishLevel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Levels/Level_2.gd" type="Script" id=1]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://tiles/DirtAutoTile.tres" type="TileSet" id=3]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/FinishLevel.tscn" type="PackedScene" id=7]
 
 [node name="Main" type="Node2D"]
+script = ExtResource( 1 )
+Checkpoints = 6
+Name = "Level 2"
+
+[node name="HUD" parent="." instance=ExtResource( 2 )]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 1, 0 )
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 format = 1
 tile_data = PoolIntArray( -65538, 0, 1, -65537, 0, 65536, -131072, 0, 65536, -131071, 0, 65536, -131070, 0, 65536, -131069, 0, 65536, -131068, 0, 65536, -131067, 0, 65536, -131066, 0, 65536, -131065, 0, 9, -131064, 0, 196609, -131063, 0, 196609, -131062, 0, 196609, -131061, 0, 196609, -131060, 0, 196609, -131059, 0, 196609, -131058, 0, 196609, -131057, 0, 10, -131056, 0, 65536, -131055, 0, 9, -131054, 0, 196609, -131053, 0, 196609, -131052, 0, 196609, -131051, 0, 196609, -131050, 0, 7, -2, 0, 131073, -1, 0, 196619, -65536, 0, 196619, -65535, 0, 196619, -65534, 0, 196619, -65533, 0, 196619, -65532, 0, 196619, -65531, 0, 196619, -65530, 0, 196619, -65529, 0, 131074, -65521, 0, 65537, -65520, 0, 131072, -65519, 0, 65538, -65514, 0, 65541, 65534, 0, 65546, 65535, 0, 131072, 0, 0, 131072, 1, 0, 131072, 2, 0, 131072, 3, 0, 131072, 4, 0, 131072, 5, 0, 131072, 6, 0, 131072, 7, 0, 65545, 22, 0, 65541, 131070, 0, 65541, 65543, 0, 65541, 65558, 0, 65541, 196606, 0, 65541, 131079, 0, 8, 131080, 0, 65536, 131081, 0, 65536, 131082, 0, 65536, 131083, 0, 65536, 131084, 0, 9, 131085, 0, 196609, 131086, 0, 196610, 131091, 0, 6, 131092, 0, 196609, 131093, 0, 196609, 131094, 0, 196612, 262142, 0, 65541, 196615, 0, 65537, 196616, 0, 131072, 196617, 0, 131072, 196618, 0, 131072, 196619, 0, 131072, 196620, 0, 65538, 196625, 0, 196608, 196626, 0, 196609, 196627, 0, 65543, 196630, 0, 65541, 327678, 0, 65541, 262166, 0, 65541, 393214, 0, 65541, 327695, 0, 1, 327696, 0, 9, 327697, 0, 196609, 327698, 0, 196609, 327699, 0, 196609, 327700, 0, 196609, 327701, 0, 196609, 327702, 0, 196612, 458750, 0, 8, 458751, 0, 65536, 393216, 0, 65536, 393217, 0, 2, 393222, 0, 196608, 393223, 0, 196609, 393224, 0, 196609, 393225, 0, 196609, 393226, 0, 196609, 393227, 0, 196609, 393228, 0, 196609, 393229, 0, 196609, 393230, 0, 196609, 393231, 0, 65544, 393232, 0, 65538, 393238, 0, 65541, 524286, 0, 131073, 524287, 0, 196619, 458752, 0, 196619, 458753, 0, 131074, 458774, 0, 65541, 589822, 0, 65537, 589823, 0, 131072, 524288, 0, 131072, 524289, 0, 65547, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 196609, 524294, 0, 196609, 524295, 0, 196609, 524296, 0, 196609, 524297, 0, 196609, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 196609, 524303, 0, 196609, 524304, 0, 196609, 524305, 0, 196609, 524306, 0, 196609, 524307, 0, 196609, 524308, 0, 196609, 524309, 0, 196609, 524310, 0, 65543 )
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 256, 481 )
 
 [node name="Checkpoints" type="Node" parent="."]
 
-[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 576, 64 )
 
-[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 1344, 64 )
 
-[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint3" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 1344, 284.63 )
 
-[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint4" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 832, 64 )
 
-[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint5" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 832, 316.63 )
 
-[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource( 3 )]
+[node name="Checkpoint6" parent="Checkpoints" instance=ExtResource( 5 )]
 position = Vector2( 576, 316.63 )
 
 [node name="DynamicBlocks" type="Node" parent="."]
 
-[node name="Dynamic1" parent="DynamicBlocks" instance=ExtResource( 4 )]
+[node name="Dynamic1" parent="DynamicBlocks" instance=ExtResource( 6 )]
 position = Vector2( 1, 276.203 )
 
-[node name="FinishLevel" parent="." instance=ExtResource( 5 )]
+[node name="FinishLevel" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1280, 384 )

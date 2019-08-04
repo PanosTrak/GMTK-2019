@@ -64,6 +64,7 @@ func unfreeze():
 	add_child(freeze_particles_inst)
 	freeze_particles_inst.set_global_position(get_global_position())
 	freeze_particles_inst.set_emitting(true)
+	$Ghost_animation.set_self_modulate(Color(0.1, 0.5, 1, 0.5))
 
 func die():
 	at_pos = 0

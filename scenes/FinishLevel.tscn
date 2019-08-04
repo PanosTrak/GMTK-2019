@@ -28,10 +28,15 @@ position = Vector2( 64.3029, 64.3029 )
 shape = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
-margin_left = -163.397
-margin_top = -137.971
-margin_right = 425.603
-margin_bottom = -77.9712
+margin_left = -189.048
+margin_top = -132.271
+margin_right = 399.952
+margin_bottom = -72.2712
 custom_fonts/font = SubResource( 2 )
 text = "Level finished"
+
+[node name="Next_Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Next_Timer" to="." method="_on_Next_Timer_timeout"]

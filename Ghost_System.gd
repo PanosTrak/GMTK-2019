@@ -5,6 +5,7 @@ export (PackedScene) var Ghost
 signal stop
 
 var anim_Sprite
+var hud
 
 var time = 0
 var states_position = 0
@@ -16,6 +17,9 @@ var currentState = "idle"
 
 var states = []
 var positions = []
+
+func _ready():
+	hud = get_parent().get_parent().get_child(0)
 
 func _process(delta):
 	time += delta
@@ -60,6 +64,8 @@ func hitCheckPoint(area):
 	var cp = area.get_parent()
 	if cp.is_in_group('checkpoint'):
 		print("Hit Ckeckpoint")
+		hud.increaseGhosts()
+		hud.increaseScore()
 		var g1 = Ghost.instance()
 		g1.global_position = positions[0]
 		g1.setStates(states)

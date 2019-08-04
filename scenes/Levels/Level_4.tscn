@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://tiles/DirtAutoTile.tres" type="TileSet" id=1]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Checkpoint.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/DynamicBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/FinishLevel.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 1, 0 )
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( -65538, 0, 6, -65537, 0, 196609, -131072, 0, 196609, -131071, 0, 196609, -131070, 0, 196609, -131069, 0, 196609, -131068, 0, 196609, -131067, 0, 196609, -131066, 0, 196609, -131065, 0, 196609, -131064, 0, 196609, -131063, 0, 196609, -131062, 0, 196609, -131061, 0, 196609, -131060, 0, 196609, -131059, 0, 196609, -131058, 0, 196609, -131057, 0, 196609, -131056, 0, 196609, -131055, 0, 196609, -131054, 0, 196609, -131053, 0, 196609, -131052, 0, 196609, -131051, 0, 196609, -131050, 0, 7, -2, 0, 65541, -65514, 0, 65541, 65534, 0, 65541, 22, 0, 65541, 131070, 0, 65541, 65558, 0, 65541, 196606, 0, 65541, 131094, 0, 65541, 262142, 0, 65541, 196630, 0, 65541, 327678, 0, 65541, 262166, 0, 65541, 393214, 0, 65541, 327702, 0, 65541, 458750, 0, 65541, 393238, 0, 65541, 524286, 0, 65541, 458757, 0, 1, 458758, 0, 65536, 458759, 0, 65536, 458760, 0, 2, 458767, 0, 1, 458768, 0, 65536, 458769, 0, 65536, 458770, 0, 2, 458774, 0, 65541, 589822, 0, 65542, 589823, 0, 196609, 524288, 0, 196609, 524289, 0, 196609, 524290, 0, 196609, 524291, 0, 196609, 524292, 0, 196609, 524293, 0, 65544, 524294, 0, 131072, 524295, 0, 131072, 524296, 0, 65547, 524297, 0, 196609, 524298, 0, 196609, 524299, 0, 196609, 524300, 0, 196609, 524301, 0, 196609, 524302, 0, 196609, 524303, 0, 65544, 524304, 0, 131072, 524305, 0, 131072, 524306, 0, 65547, 524307, 0, 196609, 524308, 0, 196609, 524309, 0, 196609, 524310, 0, 65543 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 94.7701, 477.699 )
+
+[node name="Checkpoints" type="Node" parent="."]
+
+[node name="Checkpoint1" parent="Checkpoints" instance=ExtResource( 3 )]
+position = Vector2( 736, 448 )
+
+[node name="Checkpoint2" parent="Checkpoints" instance=ExtResource( 3 )]
+position = Vector2( 1088, 224 )
+
+[node name="DynamicBlocks" type="Node" parent="."]
+
+[node name="Dynamic1" parent="DynamicBlocks" instance=ExtResource( 4 )]
+position = Vector2( 1088, 338.322 )
+
+[node name="FinishLevel" parent="." instance=ExtResource( 5 )]
+position = Vector2( -64, 384 )

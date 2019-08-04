@@ -36,8 +36,9 @@ wait_time = 2.0
 one_shot = true
 
 [node name="AnimatedSprite2" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0.639216, 1, 0, 1 )
 position = Vector2( 35, 60 )
 scale = Vector2( 1.41107, 1.7496 )
-frame = 6
+frame = 0
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="timeout" from="Next_Timer" to="." method="_on_Next_Timer_timeout"]

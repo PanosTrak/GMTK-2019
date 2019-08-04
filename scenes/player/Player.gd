@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 export (PackedScene) var Ghost_Scene
 export (PackedScene) var freeze_particles
+export (PackedScene) var die_particles
 
 export (AudioStreamSample) var footstep_1 
 export (AudioStreamSample) var footstep_2
@@ -22,6 +23,7 @@ var last_wall_jump_pos
 var Ghost_recording
 var is_dead = false
 var is_frozen = false
+
 
 onready var footstep_player = get_node('FootstepPlayer')
 onready var freezing_player = get_node('FreezingPlayer')
@@ -108,6 +110,10 @@ func launch(speed):
 
 func die():
 	is_dead = true
+	var die_particles_inst = die_particles.instance()
+	add_child(die_particles_inst)
+	die_particles_inst.set_global_position(get_global_position())
+	die_particles_inst.set_emitting(true)
 	$AnimatedSprite.hide()
 	$Area2D.queue_free()
 

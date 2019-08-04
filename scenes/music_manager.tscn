@@ -1,0 +1,22 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/music_manager.gd" type="Script" id=1]
+[ext_resource path="res://src/music/noghost.wav" type="AudioStream" id=2]
+[ext_resource path="res://src/music/1ghost.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/music/2ghost.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/music/3ghost.wav" type="AudioStream" id=5]
+[ext_resource path="res://src/music/4ghost.wav" type="AudioStream" id=6]
+[ext_resource path="res://src/music/5ghost.wav" type="AudioStream" id=7]
+[ext_resource path="res://src/music/6ghost.wav" type="AudioStream" id=8]
+
+[node name="music_manager" type="Node"]
+script = ExtResource( 1 )
+no_ghost = ExtResource( 2 )
+ghost_one = ExtResource( 3 )
+ghost_two = ExtResource( 4 )
+ghost_three = ExtResource( 5 )
+ghost_four = ExtResource( 6 )
+ghost_five = ExtResource( 7 )
+ghost_six = ExtResource( 8 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

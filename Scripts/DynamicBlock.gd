@@ -52,7 +52,7 @@ func _on_Area2D_body_entered(body):
 
 
 func _on_ChangeStateArea2D_body_entered(body):
-	if body.is_in_group('player') && body.is_on_ceiling():
+	if body.is_in_group('player') && !body.is_on_wall():
 		if $AnimationPlayer.get_current_animation() == 'bumped':
 			$AnimationPlayer.stop()
 		$AnimationPlayer.set_current_animation('bumped')

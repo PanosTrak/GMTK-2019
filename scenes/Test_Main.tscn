@@ -29,3 +29,5 @@ position = Vector2( 1220.94, 69.3375 )
 
 [node name="StaticBody2D" parent="." instance=ExtResource( 5 )]
 position = Vector2( 507.478, 65.3738 )
+
+[node name="music_manager" parent="." instance=ExtResource( 5 )]

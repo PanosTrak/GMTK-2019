@@ -5,12 +5,12 @@
 [ext_resource path="res://scenes/Level_Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 30
 extra_spacing_char = 15
 font_data = ExtResource( 4 )
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 70
 extra_spacing_char = 15
 font_data = ExtResource( 4 )
@@ -41,7 +41,7 @@ anchor_bottom = 1.0
 margin_left = -51.0
 margin_right = 51.0
 margin_bottom = -473.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "the"
 align = 1
 valign = 1
@@ -53,7 +53,7 @@ anchor_bottom = 1.0
 margin_left = -177.0
 margin_right = 178.0
 margin_bottom = -392.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "Enemy"
 align = 1
 valign = 1

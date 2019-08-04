@@ -2,7 +2,7 @@
 
 ### Team
 
--Game Designer:
+- Game Designer:
   - https://github.com/EugeneTel
 - Programmers:
   - https://github.com/PanosTrak

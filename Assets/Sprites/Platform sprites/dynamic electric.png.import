@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dynamic electric.png-c4194b51ec047e7be2f2576d6f7c03d9.stex"
+path="res://.import/dynamic electric.png-ecfdc09a495fb64a838bc988722853e0.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Platform sprites/dynamic electric.png"
-dest_files=[ "res://.import/dynamic electric.png-c4194b51ec047e7be2f2576d6f7c03d9.stex" ]
+source_file="res://assets/Sprites/Platform sprites/dynamic electric.png"
+dest_files=[ "res://.import/dynamic electric.png-ecfdc09a495fb64a838bc988722853e0.stex" ]
 
 [params]
 

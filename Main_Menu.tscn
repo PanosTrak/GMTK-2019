@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Main_Menu.gd" type="Script" id=1]
-[ext_resource path="res://scenes/Test_Main.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/Levels/Level_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Level_Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/batmfa__.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Main_menu_font.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/menu_music_manager.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -105,8 +104,6 @@ margin_right = 612.419
 margin_bottom = 487.462
 custom_fonts/font = SubResource( 4 )
 text = "Exit"
-
-[node name="menu_music_manager" parent="." instance=ExtResource( 6 )]
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="level" to="." method="_on_level_pressed"]
 [connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

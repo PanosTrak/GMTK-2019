@@ -1,5 +1,7 @@
 # GMTK 2019 Game Jam Project
 
+https://panostrak.itch.io/the-enemy-is-you
+
 ### Team
 
 - Game Designer:

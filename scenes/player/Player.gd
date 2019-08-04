@@ -3,6 +3,11 @@ extends KinematicBody2D
 export (PackedScene) var Ghost_Scene
 export (PackedScene) var freeze_particles
 
+export (AudioStreamSample) var footstep_1 
+export (AudioStreamSample) var footstep_2
+export (AudioStreamSample) var landing
+export (AudioStreamSample) var freezing
+
 const MAX_SPEED = 200
 const ACCELERATION = 25
 const GRAVITY = 500
@@ -17,6 +22,10 @@ var last_wall_jump_pos
 var Ghost_recording
 var is_dead = false
 var is_frozen = false
+
+onready var footstep_player = get_node('FootstepPlayer')
+onready var freezing_player = get_node('FreezingPlayer')
+onready var landing_player = get_node('LandingPlayer')
 
 func _ready():
 	Ghost_recording = Ghost_Scene.instance()
@@ -82,6 +91,16 @@ func movement_input():
 		velocity.y = clamp(move_pos.y + velocity.y, ON_WALL_JUMP_LIMIT, ON_WALL_GRAVITY)
 
 	velocity = move_and_slide(velocity, Vector2(0,-1))
+	if velocity.x != 0 && is_on_floor():
+		var rand_step = randi()
+		var step_sound
+		if rand_step % 2:
+			step_sound = footstep_1
+		else:
+			step_sound = footstep_2
+		if !footstep_player.is_playing() || footstep_player.get_playback_position() > 0.40:
+			footstep_player.set_stream(step_sound)
+			footstep_player.play()
 
 
 func launch(speed):
@@ -94,6 +113,8 @@ func die():
 
 func freeze():
 	is_frozen = true
+	# audio_stream.set_stream(freezing)
+	# audio_stream.play()
 	$AnimatedSprite.set_self_modulate(Color(0.1, 1, 1, 1))
 
 func unfreeze():

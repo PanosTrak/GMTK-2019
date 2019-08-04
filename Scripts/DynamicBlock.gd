@@ -14,12 +14,16 @@ export(float) var freeze_time = 3.0
 
 export(PackedScene) var freeze_particles
 
+export(AudioStreamSample) var bumping_sound
+
 onready var state_texture = {
 	0: default_img,
 	1: freezer_img,
 	2: spikes_img,
 	3: jumper_img
 }
+
+onready var audio_player = get_node('AudioStreamPlayer')
 
 var player
 var ghost
@@ -56,6 +60,7 @@ func _on_ChangeStateArea2D_body_entered(body):
 		if $AnimationPlayer.get_current_animation() == 'bumped':
 			$AnimationPlayer.stop()
 		$AnimationPlayer.set_current_animation('bumped')
+		audio_player.play()
 		if state != 3:
 			state += 1
 		else:
